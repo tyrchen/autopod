@@ -1,0 +1,27 @@
+[package]
+name = "autopod_server"
+version = "0.1.0"
+authors = ["Tyr Chen <tyr.chen@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "server"
+path = "src/bin/main.rs"
+
+[dependencies]
+anyhow = "1"
+bytes = "0.5"
+prost = "0.6"
+prost-types = "0.6"
+rusoto_core = "0.43"
+rusoto_polly = "0.43"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "0.2", features = ["full"] }
+tonic = { version = "0.2", features = ["tls"]}
+
+
+[build-dependencies]
+tonic-build = { version = "0.2"}

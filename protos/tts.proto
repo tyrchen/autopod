@@ -1,0 +1,27 @@
+syntax = "proto3";
+package tts;
+
+enum StatusCode {
+    ok = 0;
+
+    // common code
+    // 1 - 15
+
+    // 16 - 2047 various errors
+  }
+
+message RequestSynthesize {
+    string text = 1;
+}
+
+message ResponseSynthesize {
+    StatusCode code = 1;
+    bytes data = 2;
+}
+
+
+// GRPC APIs for TTS
+service TtsService {
+    // check if a username exists
+    rpc synthesize(RequestSynthesize) returns (ResponseSynthesize);
+}
