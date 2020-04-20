@@ -22,6 +22,5 @@ message ResponseSynthesize {
 
 // GRPC APIs for TTS
 service TtsService {
-    // check if a username exists
     rpc synthesize(RequestSynthesize) returns (ResponseSynthesize);
 }

@@ -110,6 +110,30 @@ sequenceDiagram
 
 ---
 
+## Backend
+
+- rusoto (async AWS client)
+- tonic (async GRPC server)
+- prost (protobuf code compiler/generator)
+- anyhow (error handling)
+
+---
+
+![bg left contain](assets/mvp.jpg)
+
+## Client
+
+- audioplayer (mp3 playback)
+- crypto (hash function)
+- grpc (grpc client)
+- protobuf (protobuf compiler)
+- zefyr (markdown editor)
+
+---
+
+## Thank you!
+
+
 <!-- mermaid.js -->
 <script src="https://unpkg.com/mermaid@8.5.0/dist/mermaid.min.js"></script>
 <script>mermaid.initialize({startOnLoad:true});</script>
