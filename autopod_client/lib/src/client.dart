@@ -14,12 +14,8 @@ class SynthesizeClient {
 
   SynthesizeClient({this.host = 'localhost', this.port = 12345});
 
-  Future<String> gen(String text, String path) async {
-    final bytes = utf8.encode(text);
-    final filename = p.join(path, "${sha1.convert(bytes)}.mp3");
-    final file = File(filename);
-    if (!await file.exists()) {
-      final channel = ClientChannel(
+  Future<List<int>> synthesize(String text) async {
+    final channel = ClientChannel(
           host,
           port: port,
           options: const ChannelOptions(credentials: ChannelCredentials.insecure()),
@@ -27,12 +23,24 @@ class SynthesizeClient {
       final stub = TtsServiceClient(channel);
       try {
         final response = await stub.synthesize(RequestSynthesize()..text = text);
-        await file.writeAsBytes(response.data);
         print('Greeter client received: ${response.code}');
+        return response.data;
       } catch (e) {
         print('Caught error: $e');
+        throw(e);
+      } finally {
+        channel.shutdown();
       }
-      channel.shutdown();
+  }
+
+  Future<String> gen(String text, String path) async {
+    final bytes = utf8.encode(text);
+    final hash = sha1.convert(bytes).toString();
+    final filename = p.join(path, "$hash.mp3");
+    final file = File(filename);
+    if (!await file.exists()) {
+      final data = await synthesize(text);
+      await file.writeAsBytes(data);
     }
     return filename;
   }
