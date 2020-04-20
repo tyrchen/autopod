@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:autopod_client/editor_page.dart';
 
 void main() {
-  runApp(QuickStartApp());
+  runApp(AutopodApp());
 }
 
-class QuickStartApp extends StatelessWidget {
+class AutopodApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

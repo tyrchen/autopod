@@ -49,6 +49,7 @@ pub mod tts_service_client {
             let inner = tonic::client::Grpc::with_interceptor(inner, interceptor);
             Self { inner }
         }
+        #[doc = " synthesize the given text to mp3"]
         pub async fn synthesize(
             &mut self,
             request: impl tonic::IntoRequest<super::RequestSynthesize>,
@@ -84,6 +85,7 @@ pub mod tts_service_server {
     #[doc = "Generated trait containing gRPC methods that should be implemented for use with TtsServiceServer."]
     #[async_trait]
     pub trait TtsService: Send + Sync + 'static {
+        #[doc = " synthesize the given text to mp3"]
         async fn synthesize(
             &self,
             request: tonic::Request<super::RequestSynthesize>,
