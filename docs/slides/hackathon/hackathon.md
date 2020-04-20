@@ -15,19 +15,16 @@ theme: uncover
 
 ---
 
-## Chalenges
-
----
-
 ## We need Amazon Polly!
 
 However, almost all 3rd party clients won't have polly built in.
+Especially dart...
 
 ---
 
-## Roll our own?
+### ~~Roll our own?~~
 
-Use a code generator!
+## Use a code generator!
 
 ---
 
@@ -39,12 +36,11 @@ We shall learn from it!
 
 ---
 
-
-## I found this nice looking lib: aws_client in pub...
+## I found this nice looking lib: `aws_client` in __pub.dev__...
 
 ---
 
-## But there's always brickwall waiting for you...
+## _brickwall #1_: code won't compile...
 
 ---
 
@@ -81,7 +77,9 @@ The fix is straight forward: [Pull Request](https://github.com/agilord/aws_clien
 
 ![bg left fit](assets/rest_json.jpg)
 
-#### However it turned out `aws_client` is not yet finished for `rest-json`...
+## _brickwall #2_
+
+#### turned out `aws_client` is not yet finished for `rest-json`...
 
 ---
 <!-- backgroundColor: #222831 -->
@@ -102,8 +100,8 @@ sequenceDiagram
     activate Rust
     Rust->>AWS: JSON request
     AWS->>Rust: JSON response
-    deactivate Rust
     Rust->>Flutter: GRPC response
+    deactivate Rust
     Flutter->>User: Store and Play!
     deactivate Flutter
 </div>
@@ -128,6 +126,20 @@ sequenceDiagram
 - grpc (grpc client)
 - protobuf (protobuf compiler)
 - zefyr (markdown editor)
+
+---
+
+![bg left contain](assets/tokei.jpg)
+
+### Current Status
+
+- MVP
+  - UI code: 1/20
+  - feature: 1/5 ~ 1/10
+- Features to be added:
+  - generate podcast feed
+  - integration with firebase to store text/mp3 in the cloud
+  - integration with netlify to auto-publish
 
 ---
 

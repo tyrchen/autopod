@@ -49,7 +49,6 @@ pub mod tts_service_client {
             let inner = tonic::client::Grpc::with_interceptor(inner, interceptor);
             Self { inner }
         }
-        #[doc = " check if a username exists"]
         pub async fn synthesize(
             &mut self,
             request: impl tonic::IntoRequest<super::RequestSynthesize>,
@@ -85,7 +84,6 @@ pub mod tts_service_server {
     #[doc = "Generated trait containing gRPC methods that should be implemented for use with TtsServiceServer."]
     #[async_trait]
     pub trait TtsService: Send + Sync + 'static {
-        #[doc = " check if a username exists"]
         async fn synthesize(
             &self,
             request: tonic::Request<super::RequestSynthesize>,

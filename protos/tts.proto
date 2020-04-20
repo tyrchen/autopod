@@ -22,5 +22,6 @@ message ResponseSynthesize {
 
 // GRPC APIs for TTS
 service TtsService {
+    /// synthesize the given text to mp3
     rpc synthesize(RequestSynthesize) returns (ResponseSynthesize);
 }
