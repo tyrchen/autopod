@@ -15,6 +15,14 @@ theme: uncover
 
 ---
 
+![bg right contain](assets/prework.jpg)
+
+![bg right contain](assets/prework1.jpg)
+
+## prework
+
+---
+
 ## We need Amazon Polly!
 
 However, almost all 3rd party clients won't have polly built in.
