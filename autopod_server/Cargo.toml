@@ -14,7 +14,7 @@ path = "src/bin/main.rs"
 anyhow = "1"
 bytes = "0.5"
 prost = "0.6"
-prost-types = "0.6"
+prost-types = "0.8"
 rusoto_core = "0.43"
 rusoto_polly = "0.43"
 serde = { version = "1", features = ["derive"] }
